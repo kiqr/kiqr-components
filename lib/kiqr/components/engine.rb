@@ -1,6 +1,7 @@
 require "view_component"
 require "view_component-contrib"
 require "dry-initializer"
+require "lookbook"
 
 module Kiqr
   module Components
