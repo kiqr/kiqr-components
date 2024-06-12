@@ -1,0 +1,19 @@
+{
+  "name": "kiqr-components",
+  "version": "0.1.0",
+  "repository": "git@github.com:kiqr/kiqr-components.git",
+  "author": "Rasmus Kjellberg <2277443+kjellberg@users.noreply.github.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build:css": "postcss ./app/assets/stylesheets/kiqr_components.pcss -o ./app/assets/dist/kiqr_components.css"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "cssnano": "^7.0.2",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0",
+    "postcss-import": "^16.1.0",
+    "postcss-nested": "^6.0.1"
+  }
+}
