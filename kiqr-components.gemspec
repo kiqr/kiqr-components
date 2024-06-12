@@ -17,4 +17,8 @@ Gem::Specification.new do |spec|
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
     Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
   end
+
+  spec.add_dependency "view_component", "~> 3.12"
+  spec.add_dependency "view_component-contrib", "~> 0.2.2"
+  spec.add_dependency "dry-initializer", "~> 3.1"
 end
