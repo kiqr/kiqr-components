@@ -13,6 +13,8 @@ gem "capybara"
 gem "listen"
 gem "actioncable"
 
+gem "pg", "~> 1.1"
+
 # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
 gem "rubocop-rails-omakase", require: false
 
