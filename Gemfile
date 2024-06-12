@@ -9,6 +9,7 @@ gem "puma"
 gem "rails", RAILS_VERSION
 gem "sqlite3", "~> 1.4"
 gem "sprockets-rails"
+gem "capybara"
 
 # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
 gem "rubocop-rails-omakase", require: false

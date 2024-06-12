@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build:css": "postcss ./app/assets/stylesheets/kiqr_components.pcss -o ./app/assets/dist/kiqr_components.css"
+    "build:css": "postcss ./app/assets/src/stylesheets/kiqr_components.pcss -o ./app/assets/dist/kiqr_components.css"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.19",

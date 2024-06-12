@@ -36,7 +36,45 @@ class ViewComponentGenerator < Rails::Generators::NamedBase
     template "preview.rb", File.join("app/components", class_path, file_name, "preview.rb")
   end
 
+  def create_pcss_file
+    return if options[:skip_css]
+
+    template "index.pcss.tt", File.join("app/components", class_path, file_name, "index.pcss")
+  end
+
+  def inject_import_to_pscss_index_file
+    return if options[:skip_css]
+
+    inject_into_file "app/components/index.pcss" do
+      "@import \"#{class_path.join('/')}/#{file_name}/index.pcss\";\n"
+    end
+  end
+
+  def revoke
+    remove_import_from_pscss_index_file
+  end
+
   private
+
+  def css_class_name
+    class_name.gsub('Kiqr::Components::', 'kiqr-')
+         .gsub('::', '__')
+         .gsub(/([a-z])([A-Z])/, '\1-\2')
+         .downcase
+  end
+
+  def remove_import_from_pscss_index_file
+     return if options[:skip_css]
+
+     import_statement = "@import \"#{class_path.join('/')}/#{file_name}/index.pcss\";\n"
+     file_path = "app/components/index.pcss"
+
+     if File.exist?(file_path)
+       file_contents = File.read(file_path)
+       new_contents = file_contents.gsub(import_statement, '')
+       File.write(file_path, new_contents)
+     end
+   end
 
   def parent_class
     "Kiqr::Components::Component"
