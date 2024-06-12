@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Kiqr::Components::Button::Component < Kiqr::Components::Component
-  option :variant, default: proc { :default }
+  option :variant, default: proc { :default }, in: %i[default danger]
 
   style {
     base {
@@ -11,6 +11,7 @@ class Kiqr::Components::Button::Component < Kiqr::Components::Component
     variants {
       variant {
         default { %w[kiqr-button--default] }
+        danger { %w[kiqr-button--danger] }
       }
     }
   }

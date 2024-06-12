@@ -7,4 +7,8 @@ class Kiqr::Components::Button::Preview < Kiqr::Components::ComponentPreview
   def default
     kiqr_button { "Default button" }
   end
+
+  def danger
+    kiqr_button(variant: :danger) { "Delete something" }
+  end
 end
