@@ -1,2 +1,2 @@
-web: bin/rails server
+web: bin/rails server --port 4000
 postcss: bin/yarn build:css --watch

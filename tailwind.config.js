@@ -5,4 +5,5 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  safelist: ["kiqr-body-classes"],
 };
