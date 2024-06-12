@@ -39,11 +39,11 @@ class ViewComponentGenerator < Rails::Generators::NamedBase
   private
 
   def parent_class
-    "Kiqr::ViewComponent"
+    "Kiqr::Components::Component"
   end
 
   def preview_parent_class
-    "Kiqr::ViewComponentPreview"
+    "Kiqr::Components::ComponentPreview"
   end
 
   def initialize_signature
