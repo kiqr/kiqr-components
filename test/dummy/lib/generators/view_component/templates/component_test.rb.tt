@@ -5,6 +5,6 @@ require "test_helper"
 class <%= class_name %>::ComponentTest < ViewComponent::TestCase
   def test_renders
     render_inline(<%= class_name %>::Component.new)
-    assert_selector "div"
+    assert_selector "div.<%= css_class_name %>"
   end
 end

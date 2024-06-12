@@ -58,10 +58,14 @@ class ViewComponentGenerator < Rails::Generators::NamedBase
   private
 
   def css_class_name
-    class_name.gsub('Kiqr::Components::', 'kiqr-')
-         .gsub('::', '__')
+    class_name.gsub("Kiqr::Components::", "kiqr-")
+         .gsub("::", "__")
          .gsub(/([a-z])([A-Z])/, '\1-\2')
          .downcase
+  end
+
+  def class_path
+    [ "kiqr", "components" ]
   end
 
   def remove_import_from_pscss_index_file
@@ -72,7 +76,7 @@ class ViewComponentGenerator < Rails::Generators::NamedBase
 
      if File.exist?(file_path)
        file_contents = File.read(file_path)
-       new_contents = file_contents.gsub(import_statement, '')
+       new_contents = file_contents.gsub(import_statement, "")
        File.write(file_path, new_contents)
      end
    end
