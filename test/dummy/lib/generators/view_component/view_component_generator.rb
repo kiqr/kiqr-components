@@ -45,13 +45,14 @@ class ViewComponentGenerator < Rails::Generators::NamedBase
   def inject_import_to_pscss_index_file
     return if options[:skip_css]
 
-    inject_into_file "app/components/index.pcss" do
-      "@import \"#{class_path.join('/')}/#{file_name}/index.pcss\";\n"
+    case self.behavior
+    when :invoke
+      inject_into_file "app/components/index.pcss" do
+        "@import \"#{class_path.join('/')}/#{file_name}/index.pcss\";\n"
+      end
+    when :revoke
+      remove_import_from_pscss_index_file
     end
-  end
-
-  def revoke
-    remove_import_from_pscss_index_file
   end
 
   private
