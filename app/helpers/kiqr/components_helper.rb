@@ -1,7 +1,7 @@
 module Kiqr
   module ComponentsHelper
     KIQR_COMPONENTS_HELPERS = {
-      button: "Kiqr::Components::Button::Component",
+      button: "Kiqr::Components::Button::Component"
     }.freeze
 
     KIQR_COMPONENTS_HELPERS.each do |name, component|
