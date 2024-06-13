@@ -1,5 +1,7 @@
 module Kiqr
   module ComponentsHelper
+    include ActionView::Helpers::UrlHelper
+
     KIQR_COMPONENTS_HELPERS = {
       button: "Kiqr::Components::Button::Component"
     }.freeze

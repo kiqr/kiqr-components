@@ -1,3 +1,13 @@
-<span class="<%= style(variant:) %>">
-  <span class="kiqr-button__text"><%= content %></span>
-</span>
+<% content_html = capture do %>
+  <span class="kiqr-button__content">
+    <span class="kiqr-button__text"><%= content %></span>
+  </span>
+<% end %>
+
+<% if skip_tag %>
+  <%= content_html %>
+<% else %>
+  <%= content_tag @tag, html_options do %>
+    <%= content_html %>
+  <% end %>
+<% end %>
