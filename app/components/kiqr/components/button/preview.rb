@@ -2,31 +2,36 @@
 
 class Kiqr::Components::Button::Preview < Kiqr::Components::ComponentPreview
   # @label Button
-  # @param variant select { choices: [default, danger] } "Button theme variant"
-  # @param size select { choices: [small, medium, large] } "Size of the button"
-  def default_button(variant: :default, size: :medium)
-    kiqr_button(variant:, size:) { "Default button" }
+  # @param color select { choices: [primary, danger] } "Button theme color"
+  # @param size select { choices: [xs, sm, md, lg, xl] } "Size of the button"
+  def default_button(color: :primary, size: :md)
+    kiqr_button(color:, size:) { "Default button" }
   end
 
-  # @!group Variants
+  # @!group Colors
 
-  # @label Default
-  def default_variant
-    kiqr_button { "Default button" }
+  # @label Primary
+  def primary_color
+    kiqr_button { "Primary button" }
   end
 
   # @label Danger
-  def danger_variant
-    kiqr_button(variant: :danger) { "Delete something" }
+  def danger_color
+    kiqr_button(color: :danger) { "Danger button" }
   end
 
   # @!endgroup
 
   # @!group Sizes
 
+  # @label Extra small
+  def xs_size
+    kiqr_button(size: :xs) { "Example button" }
+  end
+
   # @label Small
-  def small_size
-    kiqr_button(size: :small) { "Example button" }
+  def sm_size
+    kiqr_button(size: :sm) { "Example button" }
   end
 
   # @label Medium (default)
@@ -35,15 +40,20 @@ class Kiqr::Components::Button::Preview < Kiqr::Components::ComponentPreview
   end
 
   # @label Large
-  def large
-    kiqr_button(size: :large) { "Example button" }
+  def lg
+    kiqr_button(size: :lg) { "Example button" }
+  end
+
+  # @label Extra large
+  def lg
+    kiqr_button(size: :xl) { "Example button" }
   end
 
   # @!endgroup
 
   # @label Link
   # Pass a URL to the button to render an anchor tag instead of a button.
-  def as_link(variant: :default, size: :medium)
+  def as_link(color: :default, size: :md)
     kiqr_button(url: "#") { "Link button" }
   end
 end

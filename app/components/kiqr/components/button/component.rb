@@ -3,8 +3,8 @@
 class Kiqr::Components::Button::Component < Kiqr::Components::Component
   option :url, default: -> { nil }
   option :type, default: -> { :button }, in: [ :button, :submit, :reset ]
-  option :size, default: -> { :medium }, in: [ :small, :medium, :large ]
-  option :variant, default: proc { :default }, in: %i[default danger]
+  option :size, default: -> { :md }, in: [ :xs, :sm, :md, :lg, :xl ]
+  option :color, default: proc { :primary }, in: %i[primary danger]
   option :html_options, default: proc { {} }
   option :skip_tag, default: false, optional: true
 
@@ -14,14 +14,16 @@ class Kiqr::Components::Button::Component < Kiqr::Components::Component
     }
 
     variants {
-      variant {
-        default { %w[kiqr-button--default] }
+      color {
+        primary { %w[kiqr-button--primary] }
         danger { %w[kiqr-button--danger] }
       }
 
       size {
-        small { %w[kiqr-button--small] }
-        large { %w[kiqr-button--large] }
+        xs { %w[kiqr-button--xs] }
+        sm { %w[kiqr-button--sm] }
+        lg { %w[kiqr-button--lg] }
+        xl { %w[kiqr-button--xl] }
       }
     }
   }
@@ -33,7 +35,7 @@ class Kiqr::Components::Button::Component < Kiqr::Components::Component
 
   def html_options
     @html_options.merge(
-      class: style(variant:, size:),
+      class: style(color:, size:),
       href: @url.present? ? @url : nil,
     )
   end
